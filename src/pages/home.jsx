@@ -5,8 +5,12 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import banner1 from "../assets/Banner1.png";
+import banner1Mobile from "../assets/banner1-mobile.png";
+
 import banner2 from "../assets/Banner2.png";
-import aboutImage from "../assets/post2.png";
+import banner2Mobile from "../assets/banner2-mobile.png";
+
+import aboutImage from "../assets/post.png";
 
 import bg from "../assets/bg2.jpg";
 
@@ -37,13 +41,10 @@ import p5 from "../assets/payment/p5.png";
 import p6 from "../assets/payment/p6.png";
 import p7 from "../assets/payment/p7.png";
 import p8 from "../assets/payment/p8.png";
-import p9 from "../assets/payment/p9.png";
-import p10 from "../assets/payment/p10.png";
-import p11 from "../assets/payment/p11.png";
-import p12 from "../assets/payment/p12.png";
 
 
-const payments = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12];
+
+const payments = [p1, p2, p3, p4, p5, p6, p7, p8];
 
 const games = [
   {
@@ -112,7 +113,16 @@ const games = [
   },
 ];
 
-const images = [banner1, banner2];
+const images = [
+  {
+    desktop: banner1,
+    mobile: banner1Mobile,
+  },
+  {
+    desktop: banner2,
+    mobile: banner2Mobile,
+  },
+];
 
 const Home = () => {
   const [current, setCurrent] = useState(0);
@@ -142,13 +152,38 @@ const Home = () => {
       {images.map((img, index) => (
         <div
           key={index}
-          className={`${current === index ? "block" : "hidden"} w-full bg-white`}
+          className={`${current === index ? "block" : "hidden"} w-full bg-black`}
         >
-          <img
-            src={img}
-            alt={`Banner ${index + 1}`}
-            className="block w-full h-[220px] sm:h-[320px] md:h-[420px] lg:h-[550px] object-cover"
-          />
+          <a
+            href="https://wa.me/message/WG7RXPWZFE5JO1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <picture>
+              {/* Mobile Image */}
+              <source
+                media="(max-width:767px)"
+                srcSet={img.mobile}
+              />
+
+              {/* Desktop Image */}
+              <img
+                src={img.desktop}
+                alt={`Banner ${index + 1}`}
+                className="
+                  w-full
+                  h-auto
+                  md:h-[420px]
+                  lg:h-[550px]
+                  object-contain
+                  md:object-cover
+                  bg-black
+                  cursor-pointer
+                  block
+                "
+              />
+            </picture>
+          </a>
         </div>
       ))}
 
@@ -183,7 +218,6 @@ const Home = () => {
         ))}
       </div>
     </div>
-
       {/* ================= ABOUT SECTION ================= */}
 
   <section className="py-16 bg-black">
@@ -250,7 +284,7 @@ const Home = () => {
       {/* RIGHT */}
       <div className="text-center lg:text-left">
 
-        <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">
+        <h2 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-yellow-400">
           WE'RE THE BEST
           <br />
           SERVICE
@@ -262,7 +296,7 @@ const Home = () => {
 
         <div className="w-24 h-1 bg-yellow-400 rounded-full my-8 mx-auto lg:mx-0"></div>
 
-        <h4 className="italic font-semibold text-xl mb-5">
+        <h4 className="italic font-semibold text-xl mb-5 text-white">
           KHELO DUM PAR, JEETO BUMPER
         </h4>
 

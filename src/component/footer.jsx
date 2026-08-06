@@ -1,4 +1,4 @@
-import logo from "../assets/logo2.png";
+import logo from "../assets/logo1.png";
 import { NavLink } from "react-router-dom";
 import {
   FaTelegramPlane,
